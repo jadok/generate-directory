@@ -1,0 +1,45 @@
+{
+  "name": "generate-directory",
+  "version": "0.0.1",
+  "description": "Generate the files structure of your project",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "preferGlobal": true,
+  "bin": {
+    "generate-directory": "dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadok/generate-directory.git"
+  },
+  "keywords": ["generate", "structure", "setup"],
+  "author": "Quentin Jadeau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jadok/generate-directory/issues"
+  },
+  "homepage": "https://github.com/jadok/generate-directory#readme",
+  "devDependencies": {
+    "@types/chalk": "2.2.0",
+    "@types/commander": "2.12.2",
+    "@types/core-js": "2.5.0",
+    "@types/inquirer": "0.0.42",
+    "@types/ora": "1.3.4",
+    "ts-node": "7.0.0",
+    "typescript": "2.9.2"
+  },
+  "dependencies": {
+    "@types/chalk": "2.2.0",
+    "@types/commander": "2.12.2",
+    "@types/inquirer": "0.0.42",
+    "chalk": "2.4.1",
+    "commander": "2.16.0",
+    "core-js": "2.5.7",
+    "ora": "2.1.0"
+  }
+}
