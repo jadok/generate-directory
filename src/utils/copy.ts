@@ -1,34 +1,63 @@
-const fs = require('fs')
+import { join } from 'path'
+import {
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync
+} from 'fs'
 
-export const copy = function (srcDir: string, dstDir: string) {
-  let results: any = []
-  const list: Array<any> = fs.readdirSync(srcDir)
-  let src, dst
+/**
+ * Copy the files and folders from the source directory to the destination directory.
+ *
+ * @param srcDir
+ *   source directory
+ * @param dstDir
+ *   destination directory
+ * @param quiet
+ *   display files created.
+ *
+ * @return boolean
+ *   True if an error occurred
+ *
+ * @see https://gist.github.com/rraallvv/7502a566cd358b347c0c81571c526770
+ */
+const copy = function (srcDir: string, dstDir: string, quiet: boolean = true) {
+  const list: Array<any> = readdirSync(srcDir)
+  let src: string
+  let dst: string
+  let hasError: boolean = false
   list.forEach(function(file) {
-    src = srcDir + '/' + file
-    dst = dstDir + '/' + file
-    const stat = fs.statSync(src)
+    src = join(srcDir, file)
+    dst = join(dstDir, file)
+    const stat = statSync(src)
     if (stat && stat.isDirectory()) {
       try {
-        console.log('creating dir: ' + dst)
-        fs.mkdirSync(dst)
+        mkdirSync(dst)
       }
       catch(e) {
-        console.log('directory already exists: ' + dst)
+        console.error(`directory already exists: ${dst}`)
+        hasError = true
       }
-      results = results.concat(copy(src, dst))
+      if (!quiet) {
+        console.log(`created ${dst}/`)
+      }
+      copy(src, dst)
     }
     else {
       try {
-        console.log('copying file: ' + dst)
-        //fs.createReadStream(src).pipe(fs.createWriteStream(dst))
-        fs.writeFileSync(dst, fs.readFileSync(src))
+        writeFileSync(dst, readFileSync(src))
       }
       catch(e) {
-        console.log('could\'t copy file: ' + dst)
+        console.error(`could not copy file: ${dst}`)
+        hasError = true
       }
-      results.push(src)
+      if (!quiet) {
+        console.log(`created ${dst}`)
+      }
     }
   })
-  return results
+  return hasError
 }
+
+export default copy

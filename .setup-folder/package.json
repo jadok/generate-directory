@@ -1,0 +1,47 @@
+{
+  "name": "vemsy",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack/webpack.config.js --watch --mode development",
+    "sass": "sass app/styles/index.scss:public/css/index.css",
+    "pm2:start": "pm2 start pm2.json",
+    "doc": "typedoc --out doc/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadok/vemsy.git"
+  },
+  "author": "Quentin <jadok> Jadeau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jadok/vemsy/issues"
+  },
+  "homepage": "https://github.com/jadok/vemsy#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.3.2",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.1",
+    "tslint": "^5.10.0",
+    "tslint-loader": "^3.6.0",
+    "tslint-microsoft-contrib": "^5.0.3",
+    "typescript": "^2.9.1",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.4",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "markdown": "^0.5.0",
+    "nconf": "^0.10.0",
+    "path": "^0.12.7",
+    "path-to-regexp": "^2.2.1",
+    "twig": "^1.12.0"
+  }
+}

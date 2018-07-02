@@ -6,7 +6,7 @@ import * as commander from 'commander'
 
 import chalk from 'chalk'
 
-import * as generateDirectory from './generateDirectory'
+import * as generateDirectory from './core/generateDirectory'
 
 const pjson = require('../package.json');
 
@@ -20,6 +20,7 @@ commander
   .action((name, srcDir) => {
     console.log(chalk.yellow('=========*** Create your new app:'), chalk.blue(name), chalk.yellow('***=========='))
     const gen = new generateDirectory.GenerateDirectory(srcDir, process.cwd())
+    gen.fullGeneration()
   })
 
 if (!process.argv.slice(2).length) {

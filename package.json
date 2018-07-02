@@ -11,13 +11,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "doc": "typedoc -out doc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jadok/generate-directory.git"
   },
-  "keywords": ["generate", "structure", "setup"],
+  "keywords": [
+    "generate",
+    "structure",
+    "setup"
+  ],
   "author": "Quentin Jadeau",
   "license": "MIT",
   "bugs": {
@@ -30,16 +35,15 @@
     "@types/core-js": "2.5.0",
     "@types/inquirer": "0.0.42",
     "@types/ora": "1.3.4",
+    "@types/shelljs": "0.8.0",
     "ts-node": "7.0.0",
     "typescript": "2.9.2"
   },
   "dependencies": {
-    "@types/chalk": "2.2.0",
-    "@types/commander": "2.12.2",
-    "@types/inquirer": "0.0.42",
     "chalk": "2.4.1",
     "commander": "2.16.0",
     "core-js": "2.5.7",
-    "ora": "2.1.0"
+    "ora": "2.1.0",
+    "shelljs": "0.8.2"
   }
 }

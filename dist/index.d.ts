@@ -1,1 +1,1 @@
-import './polyfill';
+import './utils/polyfill';
