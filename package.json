@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Generate the files structure of your project",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/lib.d.ts",
   "preferGlobal": true,
   "bin": {
     "generate-directory": "dist/index.js"
@@ -21,7 +21,9 @@
   "keywords": [
     "generate",
     "structure",
-    "setup"
+    "setup",
+    "cli",
+    "boilerplate"
   ],
   "author": "Quentin Jadeau",
   "license": "MIT",
