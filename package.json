@@ -1,6 +1,6 @@
 {
   "name": "generate-directory",
-  "version": "1.0.0",
+  "version": "1.0.0.1",
   "description": "Generate the files structure of your project",
   "main": "dist/index.js",
   "types": "dist/lib.d.ts",
