@@ -1,4 +1,3 @@
-import { join } from 'path'
 import {
   mkdirSync,
   readdirSync,
@@ -6,6 +5,7 @@ import {
   statSync,
   writeFileSync
 } from 'fs'
+import { join } from 'path'
 
 /**
  * Copy the files and folders from the source directory to the destination directory.
@@ -22,12 +22,12 @@ import {
  *
  * @see https://gist.github.com/rraallvv/7502a566cd358b347c0c81571c526770
  */
-const copy = function (srcDir: string, dstDir: string, quiet: boolean = true) {
-  const list: Array<any> = readdirSync(srcDir)
+const copy = (srcDir: string, dstDir: string, quiet: boolean = true) => {
+  const list: any[] = readdirSync(srcDir)
   let src: string
   let dst: string
   let hasError: boolean = false
-  list.forEach(function(file) {
+  list.forEach((file: string) => {
     src = join(srcDir, file)
     dst = join(dstDir, file)
     const stat = statSync(src)
@@ -35,7 +35,7 @@ const copy = function (srcDir: string, dstDir: string, quiet: boolean = true) {
       try {
         mkdirSync(dst)
       }
-      catch(e) {
+      catch (e) {
         console.error(`directory already exists: ${dst}`)
         hasError = true
       }
@@ -48,7 +48,7 @@ const copy = function (srcDir: string, dstDir: string, quiet: boolean = true) {
       try {
         writeFileSync(dst, readFileSync(src))
       }
-      catch(e) {
+      catch (e) {
         console.error(`could not copy file: ${dst}`)
         hasError = true
       }
