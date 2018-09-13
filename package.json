@@ -1,13 +1,16 @@
 {
   "name": "generate-directory",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate the files structure of your project",
-  "main": "dist/index.js",
+  "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
   "preferGlobal": true,
   "bin": {
     "generate-directory": "dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",

@@ -1,5 +1,5 @@
-import * as generateDirectory from './core/generateDirectory'
+import { GenerateDirectory } from './core/generateDirectory'
 
-export default {
-  generateDirectory
+export {
+  GenerateDirectory
 }
